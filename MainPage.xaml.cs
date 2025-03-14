@@ -26,5 +26,15 @@ namespace AdeptlyAdaptiveChallenge044
         {
             this.InitializeComponent();
         }
+
+        private void hamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            splitViewMenu.IsPaneOpen = !splitViewMenu.IsPaneOpen;
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
