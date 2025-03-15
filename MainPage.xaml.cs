@@ -1,5 +1,7 @@
-﻿using System;
+﻿using AdeptlyAdaptiveChallenge044.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,10 +24,14 @@ namespace AdeptlyAdaptiveChallenge044
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private ObservableCollection<NewsItem> NewsItems;
         public MainPage()
         {
             this.InitializeComponent();
+            NewsItems = new ObservableCollection<NewsItem>();
         }
+
+        public ObservableCollection<NewsItem> NewsItem { get; }
 
         private void hamburgerButton_Click(object sender, RoutedEventArgs e)
         {
@@ -34,7 +40,21 @@ namespace AdeptlyAdaptiveChallenge044
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (financialListItem.IsSelected)
+            {
+                NewsManager.GetNews("Financial", NewsItems);
+                titleTextBlock.Text = "Financial";
+            }
+            else if (foodListItem.IsSelected)
+            {
+                NewsManager.GetNews("Food", NewsItems);
+                titleTextBlock.Text = "Food";
+            }
+        }
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            financialListItem.IsSelected = true;
         }
     }
 }

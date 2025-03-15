@@ -5,6 +5,8 @@
     xmlns:local="using:AdeptlyAdaptiveChallenge044"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Loaded="Page_Loaded"
+    xmlns:data="using:AdeptlyAdaptiveChallenge044.Model"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -38,15 +40,25 @@
                 </ListBox>
             </SplitView.Pane>
             <SplitView.Content>
-                <GridView x:Name="mainGridView" HorizontalAlignment="Stretch" Margin="10,0,0,0" >
+                <GridView x:Name="mainGridView" ItemsSource="{x:Bind NewsItems}" HorizontalAlignment="Stretch" Margin="10,0,0,0" >
                     <GridView.ItemTemplate>
-                        <DataTemplate>
-                            
+                        <DataTemplate x:DataType="data:NewsItem">
+                            <Grid Background="White" Margin="10" Height="275" Width="200">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Image x:Name="MyImage" Source="{x:Bind Image}"/>
+                                <RelativePanel Grid.Row="1">
+                                    <TextBlock Foreground="Black" Text="{x:Bind Headline}"/>
+                                    <TextBlock Foreground="Black" Text="{x:Bind Subhead}"/>
+                                    <TextBlock Foreground="Black" Text="{x:Bind DateLine}"/>
+                                </RelativePanel>
+                            </Grid>
                         </DataTemplate>
                     </GridView.ItemTemplate>
                 </GridView>
             </SplitView.Content>
         </SplitView>
-        
     </Grid>
 </Page>
