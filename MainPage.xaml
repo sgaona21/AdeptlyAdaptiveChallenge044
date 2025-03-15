@@ -20,7 +20,7 @@
             <VisualStateGroup>
                 <VisualState x:Name="phoneMode">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
+                        <AdaptiveTrigger MinWindowWidth="320" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="searchBox.Visibility" Value="Collapsed" />
