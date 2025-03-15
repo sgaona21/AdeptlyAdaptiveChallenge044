@@ -10,11 +10,46 @@
     d:DesignWidth="400">
 
     
-        <Grid Background="White" Margin="10" Height="275" Width="200">
+        <Grid x:Name="contentView" Background="White" Margin="10" Height="275" Width="200">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="phoneMode">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="contentView.Width" Value="200" />
+                        <Setter Target="contentView.Height" Value="275" />
+                        <Setter Target="headlineTextBlock.FontSize" Value="18" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="tabletMode">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="contentView.Width" Value="400" />
+                        <Setter Target="contentView.Height" Value="400" />
+                        <Setter Target="headlineTextBlock.FontSize" Value="26" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="desktopMode">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1200" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="contentView.Width" Value="600" />
+                        <Setter Target="contentView.Height" Value="650" />
+                        <Setter Target="headlineTextBlock.FontSize" Value="32" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
             <Image x:Name="MyImage" Source="{x:Bind NewsItem.Image}"/>
             <RelativePanel Grid.Row="1" Margin="10">
                 <TextBlock x:Name="headlineTextBlock" Foreground="Black" Text="{x:Bind NewsItem.Headline}" RelativePanel.AlignTopWithPanel="True" FontSize="18" TextWrapping="Wrap"/>
