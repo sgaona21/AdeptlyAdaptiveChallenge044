@@ -46,6 +46,9 @@ namespace AdeptlyAdaptiveChallenge044.Model
             items.Add(new NewsItem() { Id = 9, Category = "Food", Headline = "Proin sem neque", Subhead = "aliquet quis ipsum tincidunt", DateLine = "Integer eleifend", Image = "Assets/Food4.png" });
             items.Add(new NewsItem() { Id = 10, Category = "Food", Headline = "Mauris bibendum non leo vitae tempor", Subhead = "In nisl tortor, eleifend sed ipsum eget", DateLine = "Curabitur dictum augue vitae elementum ultrices", Image = "Assets/Food5.png" });
 
+            items.Add(new NewsItem() { Id = 11, Category = "Sports", Headline = "World Cup", Subhead = "Portugal Wins", DateLine = "Integer eleifend", Image = "Assets/soccer.png" });
+            items.Add(new NewsItem() { Id = 12, Category = "Sports", Headline = "World Series", Subhead = "Diamondbacks take game 6", DateLine = "Curabitur dictum augue vitae elementum ultrices", Image = "Assets/baseball.png" });
+
             return items;
         }
 

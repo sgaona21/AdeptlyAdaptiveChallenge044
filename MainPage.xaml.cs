@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -42,11 +43,19 @@ namespace AdeptlyAdaptiveChallenge044
             {
                 NewsManager.GetNews("Financial", NewsItems);
                 titleTextBlock.Text = "Financial";
+                mainGridView.Background = new SolidColorBrush(Colors.Green);
             }
             else if (foodListItem.IsSelected)
             {
                 NewsManager.GetNews("Food", NewsItems);
                 titleTextBlock.Text = "Food";
+                mainGridView.Background = new SolidColorBrush(Colors.Yellow);
+            }
+            else if (sportsListItem.IsSelected)
+            {
+                NewsManager.GetNews("Sports", NewsItems);
+                titleTextBlock.Text = "Sports";
+                mainGridView.Background = new SolidColorBrush(Colors.Blue);
             }
         }
 
