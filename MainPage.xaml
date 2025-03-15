@@ -43,18 +43,7 @@
                 <GridView x:Name="mainGridView" ItemsSource="{x:Bind NewsItems}" HorizontalAlignment="Stretch" Margin="10,0,0,0" >
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="data:NewsItem">
-                            <Grid Background="White" Margin="10" Height="275" Width="200">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="*" />
-                                </Grid.RowDefinitions>
-                                <Image x:Name="MyImage" Source="{x:Bind Image}"/>
-                                <RelativePanel Grid.Row="1">
-                                    <TextBlock Foreground="Black" Text="{x:Bind Headline}"/>
-                                    <TextBlock Foreground="Black" Text="{x:Bind Subhead}"/>
-                                    <TextBlock Foreground="Black" Text="{x:Bind DateLine}"/>
-                                </RelativePanel>
-                            </Grid>
+                            <local:NewsItemControl />
                         </DataTemplate>
                     </GridView.ItemTemplate>
                 </GridView>
