@@ -30,9 +30,7 @@ namespace AdeptlyAdaptiveChallenge044
             this.InitializeComponent();
             NewsItems = new ObservableCollection<NewsItem>();
         }
-
-        public ObservableCollection<NewsItem> NewsItem { get; }
-
+       
         private void hamburgerButton_Click(object sender, RoutedEventArgs e)
         {
             splitViewMenu.IsPaneOpen = !splitViewMenu.IsPaneOpen;
